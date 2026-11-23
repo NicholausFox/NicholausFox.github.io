@@ -10,10 +10,10 @@
 		<tr>
 			<th> <a href="index.html">HOME</a> </th>
 			<th> <a href="index.html#aboutMe">ABOUT ME</a> </th>
+			<th> <a href="multimedia.html">MULTIMEDIA</a> </th>
 			<th> <a href="contact.html">CONTACT US</a> </th>
 		</tr>
 	</table>
-	<hr />
 
 </header>
 
@@ -36,18 +36,6 @@
 	</fieldset>
 
 
-
-	<p>What is your favorite animal? (select all that apply)</p>
-	<ul>
-		<li><input type="checkbox" name="favAnimal" value="dog"> Dog </li>
-		<li><input type="checkbox" name="favAnimal" value="cat"> Cat </li>
-		<li><input type="checkbox" name="favAnimal" value="bird"> Bird </li>
-		<li><input type="checkbox" name="favAnimal" value="fish"> Fish </li>
-		<li><input type="checkbox" name="favAnimal" value="turtle"> Turtle </li>
-		<li><input type="checkbox" name="favAnimal" value="all"> All of the Above </li>
-	</ul>
-
-
 	<p>What is your age?</p>
 	<ol>
 		<li><input type="radio" name="age" value="21orUnder"> 21 or under </li>
@@ -61,12 +49,37 @@
 	</ol>
 
 	<p>Why are you contacting us?
-	<select name="contactReason">
-		<option>Adoption</option>
-		<option>Donation</option>
-		<option>Just to Chat</option>
-	</select>
+  		<select id="contactReason" name="contactReason">
+    		<option value="">-- Select a reason --</option>
+    		<option value="Adoption">Adoption</option>
+    		<option value="Donation">Donation</option>
+    		<option value="Just to Chat">Just to Chat</option>
+  	</select>
 	</p>
+
+	<div id="adoptionQuestions" style="display: none;">
+  	<p>What type of animal are you interested in adopting?</p>
+  	<ul>
+    		<li><input type="checkbox" name="favAnimal" value="dog"> Dog</li>
+    		<li><input type="checkbox" name="favAnimal" value="cat"> Cat</li>
+    		<li><input type="checkbox" name="favAnimal" value="bird"> Bird</li>
+    		<li><input type="checkbox" name="favAnimal" value="fish"> Fish</li>
+    		<li><input type="checkbox" name="favAnimal" value="turtle"> Turtle</li>
+  	</ul>
+	</div>
+
+<script>
+  	const reasonSelect = document.getElementById("contactReason");
+  	const adoptionDiv = document.getElementById("adoptionQuestions");
+
+  	reasonSelect.addEventListener("change", function() {
+    	if (reasonSelect.value === "Adoption") {
+      		adoptionDiv.style.display = "block"; // Show
+    	} else {
+      		adoptionDiv.style.display = "none";  // Hide
+    	}
+  	});
+</script>
 
 	<p>Required response by:
 	<input type="date" name="responeBy"> </p>
